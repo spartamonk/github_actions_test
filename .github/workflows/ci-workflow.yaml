@@ -1,0 +1,20 @@
+name: CI Workflow
+
+on:
+  push:
+    branches: ['main']
+  pull_request:
+    branches: ['main']
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: python:3.9-slim
+    steps:
+      - name: checkout-code
+        id: checkout
+        uses: actions/checkout@v4
+      - name: run-commands
+        run: |
+          echo 'hello world'
+          echo 'checked out code successfully'
